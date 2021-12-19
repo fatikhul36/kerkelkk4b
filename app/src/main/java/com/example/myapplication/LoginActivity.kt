@@ -18,7 +18,7 @@ import org.json.JSONObject
 
 
 class LoginActivity : AppCompatActivity() {
-    lateinit var etUsername: EditText
+    lateinit var etEmail: EditText
     lateinit var  etPassword: EditText
     val MIN_PASSWORD_LENGTH = 6
 
@@ -29,7 +29,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun viewInitializations() {
-        etUsername = findViewById(R.id.et_username)
+        etEmail = findViewById(R.id.et_email)
         etPassword = findViewById(R.id.et_password)
 
         // To show back button in actionbar
@@ -38,8 +38,8 @@ class LoginActivity : AppCompatActivity() {
 
     // Checking if the input in form is valid
     fun validateInput(): Boolean {
-        if (etUsername.text.toString() == "") {
-            etUsername.error = "Please Enter Email"
+        if (etEmail.text.toString() == "") {
+            etEmail.error = "Please Enter Email"
             return false
         }
         if (etPassword.text.toString() == "") {
@@ -48,8 +48,8 @@ class LoginActivity : AppCompatActivity() {
         }
 
         // checking the proper email format
-        if (!isEmailValid(etUsername.text.toString())) {
-            etUsername.error = "Please Enter Valid Email"
+        if (!isEmailValid(etEmail.text.toString())) {
+            etEmail.error = "Please Enter Valid Email"
             return false
         }
 
@@ -61,6 +61,7 @@ class LoginActivity : AppCompatActivity() {
         return true
     }
 
+
     fun isEmailValid(email: String?): Boolean {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
@@ -70,7 +71,7 @@ class LoginActivity : AppCompatActivity() {
         if (validateInput()) {
 
             // Input is valid, here send data to your server
-            val username = etUsername!!.text.toString()
+            val email = etEmail!!.text.toString()
             val password = etPassword!!.text.toString()
             Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show()
             // Here you can call you API
@@ -85,7 +86,7 @@ class LoginActivity : AppCompatActivity() {
                 dialog = ProgressDialog.show(this, "", "Please wait...", true);
                 val parameters: MutableMap<String, String> = HashMap()
                 // Add your parameters in HashMap
-                parameters.put("username",username);
+                parameters.put("email",email);
                 parameters.put("password",password);
 
                 val strReq: StringRequest = object : StringRequest(

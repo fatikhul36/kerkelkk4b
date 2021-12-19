@@ -8,24 +8,35 @@
     tools:context=".SignupActivity">
 
     <EditText
+        android:id="@+id/et_last_name"
+        android:layout_width="359dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:hint="last name"
+        android:inputType="textPersonName"
+        android:textColorHint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.403"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_heading" />
+
+    <EditText
         android:id="@+id/et_password"
         android:layout_width="355dp"
         android:layout_height="61dp"
         android:layout_marginStart="99dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="103dp"
-        android:layout_marginBottom="480dp"
         android:ems="10"
         android:hint="password"
         android:inputType="textPassword"
         android:textColorHint="#000000"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.479"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_username"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/et_email" />
 
     <TextView
         android:id="@+id/tv_heading"
@@ -37,7 +48,7 @@
         android:textColor="#000"
         android:textSize="60sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/et_username"
+        app:layout_constraintBottom_toTopOf="@+id/et_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,19 +56,18 @@
         app:layout_constraintVertical_bias="0.48000002" />
 
     <EditText
-        android:id="@+id/et_username"
-        android:layout_width="347dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="542dp"
+        android:id="@+id/et_email"
+        android:layout_width="365dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="148dp"
         android:ems="10"
-        android:hint="name"
+        android:hint="email"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textColorHint="#000000"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.453"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_heading" />
 
@@ -74,10 +84,10 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_password"
-        app:layout_constraintVertical_bias="0.208" />
+        app:layout_constraintVertical_bias="0.063" />
 
     <Button
         android:id="@+id/button"
@@ -85,20 +95,22 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="154dp"
         android:layout_marginEnd="163dp"
-        android:layout_marginBottom="307dp"
+        android:layout_marginBottom="208dp"
         android:text="submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/layout_dont_have_account"
         android:layout_width="408dp"
         android:layout_height="72dp"
+        android:layout_marginTop="44dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button"
         app:layout_constraintWidth_percent="1.0">
@@ -124,6 +136,20 @@
 
             />
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_first_name"
+        android:layout_width="359dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="11dp"
+        android:ems="10"
+        android:hint="first name"
+        android:inputType="textPersonName"
+        android:textColorHint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.403"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_heading" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
