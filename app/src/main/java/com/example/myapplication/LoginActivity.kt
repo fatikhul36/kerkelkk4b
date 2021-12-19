@@ -130,7 +130,7 @@ class LoginActivity : AppCompatActivity() {
                 }
                 // Adding request to request queue
                 volleyRequestQueue?.add(strReq)
-                fun goToDashboard(v: View) {
+                fun goToDashboard() {
                     val intent = Intent(this, DashboardActivity::class.java)
                     startActivity(intent)
                 }

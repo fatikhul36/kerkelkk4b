@@ -18,10 +18,10 @@ import org.json.JSONObject
 class SignupActivity : AppCompatActivity() {
 
     lateinit var etFirstName: EditText
-    lateinit var etLastName:EditText
+    lateinit var etLastName: EditText
     lateinit var etEmail: EditText
-    lateinit var etPassword:EditText
-    lateinit var etRepeatPassword:EditText
+    lateinit var etPassword: EditText
+    lateinit var etRepeatPassword: EditText
     val MIN_PASSWORD_LENGTH = 6;
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -90,8 +90,7 @@ class SignupActivity : AppCompatActivity() {
     }
 
     // Hook Click Event
-
-    fun performSignUp (view: View) {
+    fun performSignUp(view: View) {
         if (validateInput()) {
 
             // Input is valid, here send data to your server
@@ -102,25 +101,30 @@ class SignupActivity : AppCompatActivity() {
             val repeatPassword = etRepeatPassword.text.toString()
 
 
-            Toast.makeText(this,"Login Success",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show()
             // Here you can call you API
             var volleyRequestQueue: RequestQueue? = null
             var dialog: ProgressDialog? = null
             val serverAPIURL: String = "https://handyopinion.com/tutorials/signup.php"
             val TAG = "Handy Opinion Tutorials"
 
-            fun SendSignUpDataToServer(firstName: String, lastName: String, email: String, password: String) {
+            fun SendSignUpDataToServer(
+                firstName: String,
+                lastName: String,
+                email: String,
+                password: String
+            ) {
                 volleyRequestQueue = Volley.newRequestQueue(this)
                 dialog = ProgressDialog.show(this, "", "Please wait...", true);
                 val parameters: MutableMap<String, String> = HashMap()
                 // Add your parameters in HashMap
-                parameters.put("firstName",firstName);
-                parameters.put("lastName",lastName);
-                parameters.put("email",email);
-                parameters.put("password",password);
+                parameters.put("firstName", firstName);
+                parameters.put("lastName", lastName);
+                parameters.put("email", email);
+                parameters.put("password", password);
 
                 val strReq: StringRequest = object : StringRequest(
-                    Method.POST,serverAPIURL,
+                    Method.POST, serverAPIURL,
                     Response.Listener { response ->
                         Log.e(TAG, "response: " + response)
                         dialog?.dismiss()
@@ -135,7 +139,7 @@ class SignupActivity : AppCompatActivity() {
                                 val data = responseObj.getJSONObject("data")
                                 // Handle your server response data here
                             }
-                            Toast.makeText(this,message,Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 
                         } catch (e: Exception) { // caught while parsing the response
                             Log.e(TAG, "problem occurred")
@@ -162,10 +166,10 @@ class SignupActivity : AppCompatActivity() {
                 volleyRequestQueue?.add(strReq)
                 fun goToDashboard(v: View) {
                     val intent = Intent(this, DashboardActivity::class.java)
-                    startActivity(intent)}
+                    startActivity(intent)
+                }
             }
 
         }
     }
-
 }
