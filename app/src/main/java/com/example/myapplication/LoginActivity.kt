@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 
 class LoginActivity : AppCompatActivity() {
-    lateinit var etEmail: EditText
+    lateinit var etUsername: EditText
     lateinit var  etPassword: EditText
     val MIN_PASSWORD_LENGTH = 6
 
@@ -21,7 +21,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun viewInitializations() {
-        etEmail = findViewById(R.id.et_email)
+        etUsername = findViewById(R.id.et_username)
         etPassword = findViewById(R.id.et_password)
 
         // To show back button in actionbar
@@ -30,8 +30,8 @@ class LoginActivity : AppCompatActivity() {
 
     // Checking if the input in form is valid
     fun validateInput(): Boolean {
-        if (etEmail.text.toString() == "") {
-            etEmail.error = "Please Enter Email"
+        if (etUsername.text.toString() == "") {
+            etUsername.error = "Please Enter Email"
             return false
         }
         if (etPassword.text.toString() == "") {
@@ -40,8 +40,8 @@ class LoginActivity : AppCompatActivity() {
         }
 
         // checking the proper email format
-        if (!isEmailValid(etEmail.text.toString())) {
-            etEmail.error = "Please Enter Valid Email"
+        if (!isEmailValid(etUsername.text.toString())) {
+            etUsername.error = "Please Enter Valid Email"
             return false
         }
 
@@ -62,7 +62,7 @@ class LoginActivity : AppCompatActivity() {
         if (validateInput()) {
 
             // Input is valid, here send data to your server
-            val email = etEmail!!.text.toString()
+            val email = etUsername!!.text.toString()
             val password = etPassword!!.text.toString()
             Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show()
             // Here you can call you API
