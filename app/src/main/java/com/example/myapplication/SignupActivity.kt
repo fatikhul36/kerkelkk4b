@@ -1,5 +1,6 @@
 package com.example.myapplication
 import android.app.ProgressDialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
@@ -136,6 +137,9 @@ class SignupActivity : AppCompatActivity() {
                 }
                 // Adding request to request queue
                 volleyRequestQueue?.add(strReq)
+                fun goToDashboard(v: View) {
+                    val intent = Intent(this, DashboardActivity::class.java)
+                    startActivity(intent)}
             }
 
         }
